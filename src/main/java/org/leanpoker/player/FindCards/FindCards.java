@@ -53,4 +53,9 @@ public class FindCards {
         int minRaise= request.getAsJsonObject().get("minimum_raise").getAsInt();
         return minRaise;
     }
+
+    public int getRound(){
+        int round = request.getAsJsonObject().get("round").getAsInt();
+        return round;
+    }
 }
