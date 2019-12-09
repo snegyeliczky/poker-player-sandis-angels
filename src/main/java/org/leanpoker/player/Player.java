@@ -13,7 +13,7 @@ public class Player {
     public static int betRequest(JsonElement request) {
         JsonObject asJsonObject = request.getAsJsonObject();
         JsonArray jsonArray = asJsonObject.get("hole_cards").getAsJsonArray();
-        if (jsonArray.get(1).toString().equals("20")) {
+        if (jsonArray.get(1).toString().equals("10")) {
             return 100;
         }
         return 0;
