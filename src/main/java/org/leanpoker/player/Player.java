@@ -6,14 +6,11 @@ import org.leanpoker.player.FindCards.bet.TakeBet;
 
 public class Player {
 
-    static final String VERSION = "All in hhhh";
+    static final String VERSION = "All in line out";
 
     public static int betRequest(JsonElement request) {
         TakeBet takeBet = new TakeBet(request);
         int bet = takeBet.getBetValue();
-        if (takeBet.getAllSuits()){
-            bet = takeBet.allIn();
-        }
         return bet;
     }
 
