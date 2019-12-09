@@ -14,7 +14,8 @@ public class TakeBet extends FindCards {
         for (JsonElement o :this.yourCards){
             String value =  o.getAsJsonObject().get("rank").getAsString();
             String type  =  o.getAsJsonObject().get("suit").getAsString();
-            System.out.println(type+value);
+            String card = type+"-"+value;
+
     }
         return 0;
     }
