@@ -64,7 +64,6 @@ public class FindCards {
         int allIn = 0;
         for (JsonElement jsonElement : jsonArray) {
             if (jsonElement.getAsJsonObject().get("name").toString().equals("\"Sandis Angels\"")) {
-                System.out.println("Name Finded");
                  allIn = jsonElement.getAsJsonObject().get("stack").getAsInt();
             }
         }

@@ -38,6 +38,28 @@ public class TakeBet extends FindCards {
         return yourCard("suit", this.cardsOnTable);
     }
 
+    public boolean getAllSuits(){
+        ArrayList<String>  mySuits = getMyCardsSuit();
+        ArrayList<String>  tableSuits = getTableCardsSuit();
+        int count = 0;
+        if(mySuits.get(0).equals(mySuits.get(1))){
+            count +=2;
+            for (int i = 0 ; i < tableSuits.size(); i++){
+                if (tableSuits.get(i).equals(mySuits.get(0))){
+                    count +=1;
+                }
+            }
+        }
+        if (count >= 5){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+
+
     private int getValueOfCards(){
         ArrayList<String> inHand = getMyCards();
         ArrayList<String> onTable = getTableCards();
