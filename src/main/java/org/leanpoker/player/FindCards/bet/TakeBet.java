@@ -8,6 +8,9 @@ import org.leanpoker.player.FindCards.FindCards;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TakeBet extends FindCards {
 
     public TakeBet(JsonElement request) {
@@ -38,6 +41,48 @@ public class TakeBet extends FindCards {
         return yourCard("suit", this.cardsOnTable);
     }
 
+    private int getValueOfCards(){
+        ArrayList<String> inHand = getMyCards();
+        ArrayList<String> onTable = getTableCards();
+        int pairs=0;
+        if (inHand.get(0).equals(inHand.get(1))){
+            pairs+=1;
+            for (String cardOnTable : onTable ){
+                if (cardOnTable.equals(inHand.get(0))){
+                    pairs+=1;
+                }
+            }
+        } else {
+            for (int i = 0; i < inHand.size(); i++) {
+               String myCard  =  inHand.get(i);
+                for (int j = 0; j < onTable.size(); j++) {
+                    if (myCard.equals(onTable.get(j))){
+                        pairs++;
+                    }
+                }
+            }
+        }
+        return pairs;
+    }
+
+    public int getBetValue(){
+        switch (getValueOfCards()){
+            case 0:
+                return 0;
+            case 1:
+                return (int) (holdBet()*1.2);
+            case 2:
+                return (int) (holdBet()*1.4);
+            case 3:
+                return (int) (holdBet()*1.5);
+            case 4:
+                return (int) (holdBet()*1.6);
+
+        }
+        return 0;
+    }
+
+
     public int compareCards(){
         ArrayList<String> myCards = getMyCards();
         ArrayList<String> tableCards = getTableCards();
@@ -47,10 +92,12 @@ public class TakeBet extends FindCards {
                         .toList());
         return sameElements.size();
     }
+
     public int sameValue() {
         if (this.yourCards.get(0).getAsJsonObject().get("rank") == this.yourCards.get(1).getAsJsonObject().get("rank")) {
             return 10;
         }
+
         return 0;
     }
 
