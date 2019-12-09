@@ -48,4 +48,9 @@ public class FindCards {
     public int getBuyIn() {
         return buyIn;
     }
+
+    public int minimumRaise(){
+        int minRaise= request.getAsJsonObject().get("minimum_raise").getAsInt();
+        return minRaise;
+    }
 }
