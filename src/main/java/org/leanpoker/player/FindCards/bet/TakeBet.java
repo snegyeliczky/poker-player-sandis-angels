@@ -70,13 +70,13 @@ public class TakeBet extends FindCards {
             case 0:
                 return holdBet();
             case 1:
-                return (int) (holdBet()*1.2);
+                return (int) ((holdBet()+minimumRaise())*1.2);
             case 2:
-                return (int) (holdBet()*1.4);
+                return (int) ((holdBet()+minimumRaise())*1.4);
             case 3:
-                return (int) (holdBet()*1.5);
+                return (int) ((holdBet()+minimumRaise())*1.5);
             case 4:
-                return (int) (holdBet()*1.6);
+                return (int) ((holdBet()+minimumRaise()*1.7));
 
         }
         return 0;
@@ -106,7 +106,7 @@ public class TakeBet extends FindCards {
         int ourLastBet = 0;
         JsonArray jsonArray= request.getAsJsonObject().get("players").getAsJsonArray();
         for (JsonElement jsonElement : jsonArray){
-            if (jsonElement.getAsJsonObject().get("id").toString().equals(request.getAsJsonObject().get("id").getAsString())){
+            if (jsonElement.getAsJsonObject().get("id").toString().equals(request.getAsJsonObject().get("in_action").getAsString())){
                 ourLastBet = jsonElement.getAsJsonObject().get("bet").getAsInt();
                 System.out.println(ourLastBet);
             }
