@@ -7,7 +7,7 @@ import org.leanpoker.player.FindCards.bet.TakeBet;
 
 public class Player {
 
-    static final String VERSION = "Sandis Angels 1.0";
+    static final String VERSION = "Bet one";
 
     public static int betRequest(JsonElement request) {
         TakeBet takeBet = new TakeBet(request);
