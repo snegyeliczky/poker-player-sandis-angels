@@ -68,7 +68,7 @@ public class TakeBet extends FindCards {
     public int getBetValue(){
         switch (getValueOfCards()){
             case 0:
-                return holdBet();
+                return 0;
             case 1:
                 return (int) ((holdBet()+minimumRaise())*1.2);
             case 2:
