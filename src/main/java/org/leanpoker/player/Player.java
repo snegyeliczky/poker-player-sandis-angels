@@ -11,7 +11,7 @@ public class Player {
 
     public static int betRequest(JsonElement request) {
         TakeBet takeBet = new TakeBet(request);
-        return takeBet.getBetValue();
+        return 0;
     }
 
     public static void showdown(JsonElement game) {
