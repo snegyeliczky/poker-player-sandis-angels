@@ -7,7 +7,7 @@ import org.leanpoker.player.FindCards.bet.TakeBet;
 
 public class Player {
 
-    static final String VERSION = "Bet online";
+    static final String VERSION = "all in added ";
 
     public static int betRequest(JsonElement request) {
         TakeBet takeBet = new TakeBet(request);
