@@ -75,6 +75,8 @@ public class TakeBet extends FindCards {
                 return (int) ((holdBet()+minimumRaise())*1.4);
             case 3:
                 return allIn();
+            case 4:
+                return allIn();
         }
         return 0;
     }

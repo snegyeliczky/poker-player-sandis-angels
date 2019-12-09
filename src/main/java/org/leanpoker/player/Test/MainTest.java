@@ -86,6 +86,18 @@ public class MainTest{
             "      }\n" +
             "  ],\n" +
             "  \"community_cards\": [                            // Finally the array of community cards.\n" +
+            "      {\n" +
+            "          \"rank\": \"4\",\n" +
+            "          \"suit\": \"spades\"\n" +
+            "      },\n" +
+            "      {\n" +
+            "          \"rank\": \"A\",\n" +
+            "          \"suit\": \"hearts\"\n" +
+            "      },\n" +
+            "      {\n" +
+            "          \"rank\": \"6\",\n" +
+            "          \"suit\": \"clubs\"\n" +
+            "      }\n" +
             "  ]\n" +
             "}";
 
