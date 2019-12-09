@@ -11,7 +11,8 @@ public class Player {
 
     public static int betRequest(JsonElement request) {
         TakeBet takeBet = new TakeBet(request);
-        takeBet.bet();
+
+
 
         FindCards findCards = new FindCards(request);
         JsonArray cards = findCards.getYourCards();
@@ -20,6 +21,9 @@ public class Player {
         System.out.println("On Table: "+cardsOnTable);
         System.out.println("In your hands: "+cards);
         System.out.println(findCards.getBuyIn());
+
+
+
 
         return 0;
     }
