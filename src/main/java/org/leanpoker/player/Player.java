@@ -25,7 +25,7 @@ public class Player {
         System.out.println("In your hands: "+cards);
         System.out.println(findCards.getBuyIn());
 
-        return bet;
+        return 0;
     }
 
     public static void showdown(JsonElement game) {
