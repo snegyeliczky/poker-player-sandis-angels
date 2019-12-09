@@ -47,5 +47,12 @@ public class TakeBet extends FindCards {
                         .toList());
         return sameElements.size();
     }
+    public int sameValue() {
+        if (this.yourCards.get(0).getAsJsonObject().get("rank") == this.yourCards.get(1).getAsJsonObject().get("rank")) {
+            return 10;
+        }
+        return 0;
+    }
+
 
 }
