@@ -66,6 +66,9 @@ public class TakeBet extends FindCards {
     }
 
     public int getBetValue(){
+        if (this.cardsOnTable().size()==0){
+            return holdBet();
+        }
         switch (getValueOfCards()){
             case 0:
                 return 0;
