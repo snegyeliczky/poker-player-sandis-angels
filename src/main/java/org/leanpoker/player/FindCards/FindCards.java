@@ -3,14 +3,19 @@ package org.leanpoker.player.FindCards;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 
-public class FindCardsInHand {
+public class FindCards {
 
     private JsonElement request;
-    private  JsonArray yourCards;
+    protected  JsonArray yourCards;
+    protected  JsonArray cardsOnTable;
+    protected  int buyIn;
 
-    public FindCardsInHand(JsonElement request) {
+
+    public FindCards(JsonElement request) {
         this.request = request;
         this.yourCards = findCards();
+        this.cardsOnTable = cardsOnTable();
+        this.buyIn=currentBuyIn();
     }
 
     public JsonArray findCards(){
@@ -26,7 +31,21 @@ public class FindCardsInHand {
         return null;
     }
 
+    public JsonArray cardsOnTable(){
+        JsonArray jsonArray= request.getAsJsonObject().get("community_cards").getAsJsonArray();
+        return jsonArray;
+    }
+
+    public int currentBuyIn(){
+        int bet= request.getAsJsonObject().get("current_buy_in").getAsInt();
+        return bet;
+    }
+
     public JsonArray getYourCards() {
         return yourCards;
+    }
+
+    public int getBuyIn() {
+        return buyIn;
     }
 }

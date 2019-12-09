@@ -2,18 +2,24 @@ package org.leanpoker.player;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
-import org.leanpoker.player.FindCards.FindCardsInHand;
-
-import java.util.Map;
+import org.leanpoker.player.FindCards.FindCards;
+import org.leanpoker.player.FindCards.bet.TakeBet;
 
 public class Player {
 
     static final String VERSION = "Sandis Angels 1.0";
 
     public static int betRequest(JsonElement request) {
-        FindCardsInHand findCardsInHand = new FindCardsInHand(request);
-        JsonArray cards = findCardsInHand.getYourCards();
-        System.out.println(cards);
+        TakeBet takeBet = new TakeBet(request);
+        takeBet.bet();
+
+        FindCards findCards = new FindCards(request);
+        JsonArray cards = findCards.getYourCards();
+        JsonArray cardsOnTable = findCards.cardsOnTable();
+
+        System.out.println("On Table: "+cardsOnTable);
+        System.out.println("In your hands: "+cards);
+        System.out.println(findCards.getBuyIn());
 
         return 0;
     }
