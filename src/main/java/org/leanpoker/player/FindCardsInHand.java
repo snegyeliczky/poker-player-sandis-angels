@@ -3,23 +3,20 @@ package org.leanpoker.player;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 
-import java.util.Map;
+public class FindCardsInHand {
 
-public class Player {
+    private JsonElement request;
+    private  JsonArray yourCards;
 
-    static final String VERSION = "Sandis Angels 1.0";
+    public FindCardsInHand(JsonElement request) {
+        this.request = request;
+        this.yourCards = findCards();
+    }
 
-    public static int betRequest(JsonElement request) {
-        System.out.println("in ");
+    public JsonArray findCards(){
         JsonArray jsonArray= request.getAsJsonObject().get("players").getAsJsonArray();
         JsonElement je = jsonArray.get(1);
         JsonArray cards=je.getAsJsonObject().get("hole_cards").getAsJsonArray();
-
-        System.out.println(cards.toString());
-
-        return 0;
-    }
-
-    public static void showdown(JsonElement game) {
+        return cards;
     }
 }
