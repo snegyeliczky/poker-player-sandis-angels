@@ -73,13 +73,13 @@ public class TakeBet extends FindCards {
             case 0:
                 return 0;
             case 1:
-                return (int) ((holdBet()+minimumRaise())*1.2);
+                return (int) ((holdBet()+minimumRaise()));
             case 2:
-                return (int) ((holdBet()+minimumRaise())*1.4);
+                return (int) ((holdBet()+minimumRaise())*1.2);
             case 3:
-                return (int) ((holdBet()+minimumRaise())*1.5);
+                return (int) ((holdBet()+minimumRaise())*1.4);
             case 4:
-                return (int) ((holdBet()+minimumRaise()*1.7));
+                return (int) ((holdBet()+minimumRaise()*1.5));
 
         }
         return 0;

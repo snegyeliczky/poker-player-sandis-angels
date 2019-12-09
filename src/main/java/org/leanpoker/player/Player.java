@@ -11,9 +11,9 @@ public class Player {
 
     public static int betRequest(JsonElement request) {
         TakeBet takeBet = new TakeBet(request);
-        System.out.println("minraise" + takeBet.getRound());
-        System.out.println("holdbet: " + takeBet.holdBet());
-        return takeBet.getBetValue();
+        int bet = takeBet.getBetValue();
+        System.out.println(bet);
+        return bet;
     }
 
     public static void showdown(JsonElement game) {
