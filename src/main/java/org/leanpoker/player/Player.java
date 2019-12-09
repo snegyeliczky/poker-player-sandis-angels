@@ -11,7 +11,11 @@ public class Player {
 
     public static int betRequest(JsonElement request) {
         TakeBet takeBet = new TakeBet(request);
-        takeBet.bet();
+
+        int bet = 0;
+        bet = request.getAsJsonObject().get("current_buy_in").getAsInt()+5;
+        bet += takeBet.bet();
+        bet += takeBet.sameValue();
 
         FindCards findCards = new FindCards(request);
         JsonArray cards = findCards.getYourCards();
@@ -21,7 +25,7 @@ public class Player {
         System.out.println("In your hands: "+cards);
         System.out.println(findCards.getBuyIn());
 
-        return request.getAsJsonObject().get("current_buy_in").getAsInt()+5;
+        return bet;
     }
 
     public static void showdown(JsonElement game) {
