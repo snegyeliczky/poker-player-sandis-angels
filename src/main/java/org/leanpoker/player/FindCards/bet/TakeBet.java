@@ -2,14 +2,11 @@ package org.leanpoker.player.FindCards.bet;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import org.leanpoker.player.FindCards.FindCards;
 
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class TakeBet extends FindCards {
 
@@ -77,10 +74,7 @@ public class TakeBet extends FindCards {
             case 2:
                 return (int) ((holdBet()+minimumRaise())*1.4);
             case 3:
-                return (int) ((holdBet()+minimumRaise())*1.5);
-            case 4:
-                return (int) ((holdBet()+minimumRaise()*1.7));
-
+                return allIn();
         }
         return 0;
     }

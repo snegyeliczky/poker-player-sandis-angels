@@ -58,4 +58,16 @@ public class FindCards {
         int round = request.getAsJsonObject().get("round").getAsInt();
         return round;
     }
+
+    public int allIn() {
+        JsonArray jsonArray = request.getAsJsonObject().get("players").getAsJsonArray();
+        int allIn = 0;
+        for (JsonElement jsonElement : jsonArray) {
+            if (jsonElement.getAsJsonObject().get("name").toString().equals("\"Sandis Angels\"")) {
+                System.out.println("Name Finded");
+                 allIn = jsonElement.getAsJsonObject().get("stack").getAsInt();
+            }
+        }
+        return allIn;
+    }
 }
