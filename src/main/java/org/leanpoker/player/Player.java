@@ -12,10 +12,12 @@ public class Player {
     public static int betRequest(JsonElement request) {
         System.out.println("in ");
         JsonArray jsonArray= request.getAsJsonObject().get("players").getAsJsonArray();
-        JsonElement je = jsonArray.get(1);
-        JsonArray cards=je.getAsJsonObject().get("hole_cards").getAsJsonArray();
-
-        System.out.println(cards.toString());
+        for (JsonElement jsonElement : jsonArray){
+            if (jsonElement.getAsJsonObject().get("name").toString().equals("Sandis Angels")){
+                JsonArray cards= jsonElement.getAsJsonObject().get("hole_cards").getAsJsonArray();
+                System.out.println(cards);
+            }
+        }
 
         return 0;
     }

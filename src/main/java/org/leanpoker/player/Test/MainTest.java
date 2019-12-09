@@ -59,7 +59,7 @@ public class MainTest{
             "      },\n" +
             "      {\n" +
             "          \"id\": 1,                                // Your own player looks similar, with one extension.\n" +
-            "          \"name\": \"Bob\",\n" +
+            "          \"name\": \"Sandis Angels\",\n" +
             "          \"status\": \"active\",\n" +
             "          \"version\": \"Default random player\",\n" +
             "          \"stack\": 1590,\n" +
