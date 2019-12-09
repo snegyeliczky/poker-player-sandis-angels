@@ -5,7 +5,7 @@ import com.google.gson.JsonElement;
 
 public class FindCards {
 
-    private JsonElement request;
+    protected JsonElement request;
     protected  JsonArray yourCards;
     protected  JsonArray cardsOnTable;
     protected  int buyIn;

@@ -54,5 +54,19 @@ public class TakeBet extends FindCards {
         return 0;
     }
 
+    public int holdBet() {
+        int biggestBet = request.getAsJsonObject().get("current_buy_in").getAsInt();
+        int ourLastBet = 0;
+        JsonArray jsonArray= request.getAsJsonObject().get("players").getAsJsonArray();
+        for (JsonElement jsonElement : jsonArray){
+            if (jsonElement.getAsJsonObject().get("id").toString().equals(request.getAsJsonObject().get("id").getAsString())){
+                ourLastBet = jsonElement.getAsJsonObject().get("bet").getAsInt();
+                System.out.println(ourLastBet);
+            }
+        }
+        return  biggestBet - ourLastBet;
+    }
+
+
 
 }
